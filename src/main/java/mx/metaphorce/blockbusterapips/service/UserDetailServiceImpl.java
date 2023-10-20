@@ -36,10 +36,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         }
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         Set < GrantedAuthority > grantedAuthorities = new HashSet < > ();
-        grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
-        grantedAuthorities.add(new SimpleGrantedAuthority("ADMIN"));
-        grantedAuthorities.add(new SimpleGrantedAuthority("admin"));
-        grantedAuthorities.add(new SimpleGrantedAuthority("cliente"));
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.getPerfil().getDescripcion()));
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getUsuario(), 
                         bcrypt.encode(user.getPassword()),
                 true, true, true, true, grantedAuthorities);
