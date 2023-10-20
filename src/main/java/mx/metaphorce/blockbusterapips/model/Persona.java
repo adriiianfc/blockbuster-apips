@@ -21,12 +21,16 @@ import lombok.ToString;
 @ToString
 @Data
 @Entity
-@Table(name = "actores")
-public class Actor implements Serializable{
+@Table(name = "personas")
+public class Persona implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellidos")
+    private String apellidos;
+    @Column(name = "edad")
+    private int edad;
 }
